@@ -7,8 +7,11 @@ public class UIButton : MonoBehaviour {
 
     public static readonly int states = 3;
     public static int state = 0;
+
     Image img;
     Color[] tileCols = new Color[] { Color.blue, Color.red, Color.green };
+
+
     // Use this for initialization
 	void Start () {
         img = GetComponent<Image>();
