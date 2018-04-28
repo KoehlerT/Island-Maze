@@ -16,7 +16,7 @@ public class LevelMap{
     public Vector2 start { get; private set; }
     public Vector2 ziel { get; private set; }
     public Vector2 größe { get; private set; } //Ausdehnung in X und Y richtung
-    public int[][] tiles { get; private set; } //int gibt den Typen der Tile an. 0 = nichts, 1=unbeweglich, 2=rot...
+    public int[][] tiles { get; private set; } //int gibt den Typen der Tile an
 
 	public LevelMap(Vector2 größe, Vector2 start, Vector2 ziel)
     {
@@ -41,25 +41,17 @@ public class LevelMap{
     //Beispiel. Dient nur zu testzwecken
     public static LevelMap getDefaultLevelMap()
     {
+     
         int[][] tbarr = new int[5][];
         for (int i = 0; i < tbarr.Length; i++)
         {
             tbarr[i] = new int[5];
             for (int j = 0; j < tbarr[i].Length; j++)
             {
-                if (Random.value < 0.2f)
-                {
-                    tbarr[i][j] = Random.Range(1,3);
-                }
-                else
-                {
-                    tbarr[i][j] = 0;
-                }
+                tbarr[i][j] = 0;
             }
         }
-            
-
-
-        return new LevelMap(new Vector2(5, 5), new Vector2(0, 5), new Vector2(5, 0), tbarr);
+        tbarr[0][1] = 1; tbarr[1][1] = 1; tbarr[2][0] = 2; tbarr[2][1] = 4; tbarr[3][4] = 4;
+        return new LevelMap(new Vector2(4, 4), new Vector2(0, 0), new Vector2(4, 4), tbarr);
     }
 }

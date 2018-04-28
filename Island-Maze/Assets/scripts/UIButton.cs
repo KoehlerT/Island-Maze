@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class UIButton : MonoBehaviour {
 
-    public static readonly int states = 3;
+    public static readonly int states = 4;
     public static int state = 0;
-
-    Image img;
-    Color[] tileCols = new Color[] { Color.blue, Color.red, Color.green };
+    public Button button;
+    public Sprite[] img;
 
 
     // Use this for initialization
 	void Start () {
-        img = GetComponent<Image>();
-        img.color = tileCols[state];
-            
+
+        button = GetComponent<Button>();
+        button.image.sprite = img[state];
+    
      }
 	
 	// Update is called once per frame
@@ -27,6 +27,6 @@ public class UIButton : MonoBehaviour {
     public void TileSwitched()
     {
         state = (state + 1) % states;
-        img.color = tileCols[state];
+        button.image.sprite = img[state];
     }
 }
